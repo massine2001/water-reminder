@@ -94,8 +94,8 @@ export default function Page() {
       <label>Intervalle (minutes)</label>
       <input
         type="number"
-        min={15}
-        step={15}
+        min={5}
+        step={5}
         value={intervalMinutes}
         onChange={(e) => setIntervalMinutes(Number(e.target.value))}
         style={{ display: "block", marginBottom: 12, width: "100%" }}

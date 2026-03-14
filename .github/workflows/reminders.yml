@@ -1,0 +1,16 @@
+name: Water reminder cron
+
+on:
+  schedule:
+    - cron: "3/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping-reminders:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call reminders endpoint
+        run: |
+          curl --fail-with-body \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            "${{ secrets.APP_URL }}/api/cron/reminders"
